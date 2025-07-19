@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports & Analytics</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Reports & Analytics</h1>
+        <p>View all your reports and analytics in one place</p>
+    </header>
+
+    <!-- Navigation bar for this page -->
+    <nav>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="task.html">Tasks</a>
+            <a href="meeting.html">Meetings</a>
+            <a href="calendar.html">Calendar</a>
+        </div>
+        <div class="profile-container">
+            <img id="profilePicture" class="profile-picture" src="https://via.placeholder.com/45" alt="Profile">
+            <div id="profileDropdown" class="profile-dropdown">
+                <div id="userName"></div>
+                <div id="userEmail"></div>
+                <div class="logout-btn" onclick="logout()">Logout</div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Section for the "Add New Report" button and form -->
+        <div class="add-new-section">
+            <button id="toggleFormButton" class="toggle-add-btn">Add New Report</button>
+            <div id="reportFormContainer" class="add-form-section" style="display: none;">
+                <h2>Add New Report</h2>
+                <form id="addReportForm">
+                    <div class="form-group">
+                        <label for="reportType">Report Type</label>
+                        <select id="reportType" required>
+                            <option value="project">Project Report</option>
+                            <option value="weekly">Weekly Club Report</option>
+                            <option value="monthly">Monthly Club Report</option>
+                            <option value="progress">Progress Report</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="reportTitle">Report Title</label>
+                        <input type="text" id="reportTitle" placeholder="Enter report title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reportDescription">Report Description</label>
+                        <textarea id="reportDescription" placeholder="Enter report description" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="reportDate">Report Date</label>
+                        <input type="date" id="reportDate" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">Add Report</button>
+                        <button type="button" class="btn-cancel" onclick="closeForm()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Search and Filter controls -->
+        <div class="search-filter-section">
+            <input type="text" id="searchInput" placeholder="Search by title, date, or type">
+            <select id="filterType">
+                <option value="all">All Types</option>
+                <option value="project">Project Report</option>
+                <option value="weekly">Weekly Club Report</option>
+                <option value="monthly">Monthly Club Report</option>
+                <option value="progress">Progress Report</option>
+            </select>
+        </div>
+
+        <!-- Section to display all the report tables -->
+        <div class="reports-section fade-in">
+            <h2>All Reports</h2>
+            <div class="report-list">
+                <h3>Project Reports</h3>
+                <table class="data-table">
+                    <thead><tr><th>S.No.</th><th>Title</th><th>Date</th></tr></thead>
+                    <tbody id="projectReportTable"></tbody>
+                </table>
+            </div>
+            <div class="report-list">
+                <h3>Weekly Club Reports</h3>
+                <table class="data-table">
+                    <thead><tr><th>S.No.</th><th>Title</th><th>Date</th></tr></thead>
+                    <tbody id="weeklyClubReportTable"></tbody>
+                </table>
+            </div>
+            <div class="report-list">
+                <h3>Monthly Club Reports</h3>
+                <table class="data-table">
+                    <thead><tr><th>S.No.</th><th>Title</th><th>Date</th></tr></thead>
+                    <tbody id="monthlyClubReportTable"></tbody>
+                </table>
+            </div>
+            <div class="report-list">
+                <h3>Progress Reports</h3>
+                <table class="data-table">
+                    <thead><tr><th>S.No.</th><th>Title</th><th>Date</th></tr></thead>
+                    <tbody id="progressReportTable"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="report.js"></script>
+</body>
+</html>

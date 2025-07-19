@@ -1,0 +1,405 @@
+/* =================================================================
+   1. GLOBAL STYLES & FONT
+   ================================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background: #f0f2f5;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+/* =================================================================
+   2. COMMON COMPONENTS (HEADER, NAV, PROFILE)
+   ================================================================= */
+
+/* --- Header --- */
+header {
+    background: url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
+    color: white;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(3, 87, 156, 0.803);
+    z-index: 1;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+header p {
+    font-size: 1.25rem;
+    font-weight: 400;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- Navigation Bar --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #34495e;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #3498db;
+}
+
+/* --- Profile Dropdown --- */
+.profile-container {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-picture {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #3498db;
+    object-fit: cover;
+}
+
+.profile-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    z-index: 1000;
+}
+
+.profile-dropdown.visible {
+    display: block;
+}
+
+.profile-dropdown div {
+    padding: 0.8rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.profile-dropdown div:last-child {
+    border-bottom: none;
+}
+
+.profile-dropdown div:hover {
+    background: #f1f1f1;
+}
+
+.logout-btn {
+    color: #e74c3c;
+    cursor: pointer;
+}
+
+/* =================================================================
+   3. PAGE-SPECIFIC STYLES
+   ================================================================= */
+
+/* --- General Form & Table Styles --- */
+.search-filter-section {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.search-filter-section input, .search-filter-section select {
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.search-filter-section input:focus, .search-filter-section select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+}
+
+.search-filter-section button {
+    background: #3498db;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.search-filter-section button:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+.toggle-add-btn {
+    background: #2ecc71;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.toggle-add-btn:hover {
+    background: #27ae60;
+    transform: translateY(-2px);
+}
+
+.add-form-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    display: none; /* Initially hidden */
+}
+
+.add-form-section.visible {
+    display: block; /* Show when visible */
+}
+
+.add-form-section h2 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.add-form-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.add-form-section input, .add-form-section textarea, .add-form-section select {
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.add-form-section input:focus, .add-form-section textarea:focus, .add-form-section select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+}
+
+.add-form-section button {
+    background: #3498db;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.add-form-section button:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* --- Styles for Task, Member, Meeting Tables --- */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+
+.data-table th, .data-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.data-table th {
+    background: #3498db;
+    color: white;
+}
+
+.data-table tr:hover {
+    background: #f1f1f1;
+}
+
+.data-table td {
+    color: #2c3e50;
+}
+
+.data-table .completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.data-table .action-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+.data-table .action-btn:hover {
+    transform: translateY(-2px);
+}
+.data-table .mark-complete-btn { background: #2ecc71; }
+.data-table .delete-btn { background: #e74c3c; }
+.data-table .reschedule-btn { background: #f39c12; }
+
+
+/* --- Styles for Project Grid --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.project-card p {
+    font-size: 1rem;
+    color: #34495e;
+    margin-bottom: 1rem;
+}
+
+.project-card .status {
+    font-weight: 600;
+    color: #3498db;
+}
+
+/* --- Styles for Calendar --- */
+.calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.calendar-controls button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.calendar-header {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-day {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.calendar-day.empty {
+    background: transparent;
+    border: none;
+}
+
+.calendar-day.today {
+    background: #2ecc71;
+    color: white;
+}
+
+/* --- Animations & Responsive --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .search-filter-section {
+        flex-direction: column;
+    }
+    .data-table th, .data-table td {
+        padding: 0.8rem;
+    }
+}

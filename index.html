@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Management System</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Google Fonts: Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles to ensure exact color and layout matches */
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        /* Gradient backgrounds for grid buttons */
+        .grid-btn-1 { background: linear-gradient(135deg, #3498db, #2980b9); }
+        .grid-btn-2 { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .grid-btn-3 { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+        .grid-btn-4 { background: linear-gradient(135deg, #f1c40f, #f39c12); }
+        .grid-btn-5 { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+        .grid-btn-6 { background: linear-gradient(135deg, #1abc9c, #16a085); }
+    </style>
+</head>
+<body class="bg-[#f0f2f5]">
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="fixed top-0 -left-64 w-64 h-full bg-[#2c3e50] transition-all duration-300 ease-in-out z-[1001]">
+        <ul class="list-none p-8">
+            <li class="mb-6"><a href="#home" class="text-white text-lg hover:text-[#3498db]">Home</a></li>
+            <li class="mb-6"><a href="members.html" class="text-white text-lg hover:text-[#3498db]">Member Details</a></li>
+            <li class="mb-6"><a href="project.html" class="text-white text-lg hover:text-[#3498db]">Projects</a></li>
+            <li class="mb-6"><a href="meeting.html" class="text-white text-lg hover:text-[#3498db]">Meetings</a></li>
+            <li class="mb-6"><a href="task.html" class="text-white text-lg hover:text-[#3498db]">Tasks</a></li>
+            <li class="mb-6"><a href="report.html" class="text-white text-lg hover:text-[#3498db]">Reports & Analytics</a></li>
+            <li class="mb-6"><a href="calendar.html" class="text-white text-lg hover:text-[#3498db]">Calendar</a></li>
+        </ul>
+    </div>
+    <div id="sidebar-toggle" class="fixed top-4 left-4 text-white text-2xl cursor-pointer z-[1002]">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Header -->
+    <header class="relative text-center text-white py-8 px-6 shadow-md" style="background-image: url('https://via.placeholder.com/1200x400'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-[rgba(3,87,156,0.803)] z-10"></div>
+        <h1 class="relative text-5xl font-semibold mb-2 z-20">Club Management System</h1>
+        <p class="relative text-xl font-normal z-20">Efficiently manage your club activities and members</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="flex justify-between items-center bg-[#34495e] py-4 px-8 sticky top-0 z-[1000]">
+        <div class="flex space-x-8">
+            <a href="#home" class="text-white no-underline font-medium hover:text-[#3498db]">Home</a>
+            <a href="report.html" class="text-white no-underline font-medium hover:text-[#3498db]">Reports & Analytics</a>
+        </div>
+        <button id="account-btn" class="bg-[#3498db] py-2 px-6 rounded-md cursor-pointer text-white no-underline font-medium">Account</button>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-screen-xl mx-auto my-8 px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-12">
+            <!-- Grid buttons are now <a> tags for semantic navigation -->
+            <a href="members.html" class="grid-btn-1 text-white p-8 rounded-xl text-lg flex flex-col items-center space-y-4 shadow-md hover:translate-y-[-5px] hover:shadow-xl transition-all">
+                <i class="fas fa-user-graduate text-8xl"></i><span>Member Details</span>
+            </a>
+            <a href="project.html" class="grid-btn-2 text-white p-8 rounded-xl text-lg flex flex-col items-center space-y-4 shadow-md hover:translate-y-[-5px] hover:shadow-xl transition-all">
+                <i class="fas fa-project-diagram text-8xl"></i><span>Projects</span>
+            </a>
+            <a href="meeting.html" class="grid-btn-3 text-white p-8 rounded-xl text-lg flex flex-col items-center space-y-4 shadow-md hover:translate-y-[-5px] hover:shadow-xl transition-all">
+                <i class="fas fa-users text-8xl"></i><span>Meetings</span>
+            </a>
+            <a href="task.html" class="grid-btn-4 text-white p-8 rounded-xl text-lg flex flex-col items-center space-y-4 shadow-md hover:translate-y-[-5px] hover:shadow-xl transition-all">
+                <i class="fas fa-tasks text-8xl"></i><span>Tasks</span>
+            </a>
+            <a href="report.html" class="grid-btn-5 text-white p-8 rounded-xl text-lg flex flex-col items-center space-y-4 shadow-md hover:translate-y-[-5px] hover:shadow-xl transition-all">
+                <i class="fas fa-file-alt text-8xl"></i><span>Reports & Analytics</span>
+            </a>
+            <a href="calendar.html" class="grid-btn-6 text-white p-8 rounded-xl text-lg flex flex-col items-center space-y-4 shadow-md hover:translate-y-[-5px] hover:shadow-xl transition-all">
+                <i class="fas fa-calendar-day text-8xl"></i><span>Calendar</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Account Information Modal -->
+    <div id="accountModal" class="hidden fixed inset-0 bg-black bg-opacity-50 justify-center items-center z-[1001]">
+        <div class="bg-white p-8 rounded-xl w-full max-w-md shadow-2xl text-center">
+            <h2 class="mb-6 text-2xl text-[#2c3e50]">Your Account</h2>
+            <p class="my-4 text-base text-[#34495e]"><strong>Name:</strong> John Doe</p>
+            <p class="my-4 text-base text-[#34495e]"><strong>Email:</strong> john.doe@example.com</p>
+            <p class="my-4 text-base text-[#34495e]"><strong>Membership:</strong> Active</p>
+            <button id="logout-btn" class="bg-[#e74c3c] text-white py-3 px-6 rounded-md cursor-pointer mt-6 w-full text-lg">Logout</button>
+        </div>
+    </div>
+
+    <!-- Logout Success Message Modal -->
+    <div id="logoutMessageModal" class="hidden fixed inset-0 bg-black bg-opacity-50 justify-center items-center z-[1002]">
+        <div class="bg-white p-8 rounded-xl w-full max-w-sm shadow-2xl text-center">
+            <h2 class="mb-4 text-xl text-[#2ecc71]">Success!</h2>
+            <p class="text-base text-[#34495e]">You have been logged out successfully.</p>
+            <button id="close-logout-msg-btn" class="bg-[#3498db] text-white py-2 px-5 rounded-md cursor-pointer mt-6">OK</button>
+        </div>
+    </div>
+
+    <script src="index.js" defer></script>
+</body>
+</html>

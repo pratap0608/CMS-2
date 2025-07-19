@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+    <!-- Link to the single, central stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Tasks</h1>
+        <p>Manage and view all tasks efficiently</p>
+    </header>
+
+    <!-- Placeholder for the navigation bar, which will be loaded by JavaScript -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Button to toggle Add Task Section -->
+        <button class="toggle-add-btn" onclick="toggleAddForm('.add-form-section')">Add New Task</button>
+
+        <!-- Add Task Section -->
+        <div class="add-form-section fade-in">
+            <h2>Add New Task</h2>
+            <form id="addTaskForm">
+                <input type="text" id="taskName" placeholder="Task Name" required>
+                <textarea id="taskDescription" placeholder="Task Description" rows="4" required></textarea>
+                <input type="text" id="assignedTo" placeholder="Assigned To" required>
+                <button type="submit">Add Task</button>
+            </form>
+        </div>
+
+        <!-- Search and Filter Section -->
+        <div class="search-filter-section fade-in">
+            <select id="filterAttribute">
+                <option value="">Search By</option>
+                <option value="name">Task Name</option>
+                <option value="assignedTo">Assigned To</option>
+                <option value="completed">Completion Status</option>
+            </select>
+            <input type="text" id="searchValue" placeholder="Enter search value">
+            <button onclick="searchAndFilter()">Search/Filter</button>
+        </div>
+
+        <!-- Task Table -->
+        <table class="data-table fade-in">
+            <thead>
+                <tr>
+                    <th>Task Name</th>
+                    <th>Description</th>
+                    <th>Assigned To</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="taskTableBody">
+                <!-- Data will be populated by task.js -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Load the main and page-specific JavaScript files at the end -->
+    <script src="main.js"></script>
+    <script src="task.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Projects</h1>
+        <p>Manage and view all project details efficiently</p>
+    </header>
+
+    <div id="navbar-placeholder"></div>
+
+    <div class="container">
+        <div class="search-filter-section fade-in">
+            <select id="filterAttribute">
+                <option value="">Search By</option>
+                <option value="id">Project ID</option>
+                <option value="name">Project Name</option>
+            </select>
+            <input type="text" id="searchValue" placeholder="Enter search value">
+            <button onclick="searchAndFilter()">Search</button>
+        </div>
+
+        <button class="toggle-add-btn" onclick="toggleAddForm('.add-form-section')">Add New Project</button>
+
+        <div class="add-form-section fade-in">
+            <h2>Add New Project</h2>
+            <form id="addProjectForm">
+                <input type="text" id="projectId" placeholder="Project ID" required>
+                <input type="text" id="projectName" placeholder="Project Name" required>
+                <textarea id="projectDescription" placeholder="Project Description" rows="4" required></textarea>
+                <input type="text" id="workingMembers" placeholder="Working Members (comma-separated)" required>
+                <select id="projectStatus" required>
+                    <option value="">Select Status</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Not Started">Not Started</option>
+                </select>
+                <button type="submit">Add Project</button>
+            </form>
+        </div>
+
+        <div class="project-grid" id="projectGrid">
+            <!-- Project cards will be populated by project.js -->
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="project.js"></script>
+</body>
+</html>

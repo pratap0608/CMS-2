@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup - Club Management System</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="auth-container" id="authContainer">
+        <!-- Login Form -->
+        <div id="loginForm">
+            <h2>Login</h2>
+            <p>Welcome back! Please log in to access your account.</p>
+            <form id="loginFormContent">
+                <div class="form-group"><label for="username">Username</label><input type="text" id="username" placeholder="Enter your username" required></div>
+                <div class="form-group"><label for="password">Password</label><input type="password" id="password" placeholder="Enter your password" required></div>
+                <button type="submit" class="auth-btn">Login</button>
+                <div class="error-message" id="loginErrorMessage">Invalid username or password.</div>
+            </form>
+            <div class="forgot-password" onclick="showForgotPassword()">Forgot Password?</div>
+            <div class="toggle-form">Don't have an account? <a onclick="showSignup()">Sign up</a></div>
+        </div>
+
+        <!-- Signup Form -->
+        <div id="signupForm" class="hidden">
+            <h2>Sign Up</h2>
+            <p>Create a new account to get started.</p>
+            <form id="signupFormContent">
+                <div class="form-group"><label for="signupUsername">Username</label><input type="text" id="signupUsername" placeholder="Choose a username" required></div>
+                <div class="form-group"><label for="signupEmail">Email</label><input type="email" id="signupEmail" placeholder="Enter your email" required></div>
+                <div class="form-group"><label for="signupPassword">Password</label><input type="password" id="signupPassword" placeholder="Choose a password" required></div>
+                <div class="captcha">
+                    <div class="captcha-text" id="signupCaptchaText"></div>
+                    <input type="text" id="signupCaptchaInput" placeholder="Enter CAPTCHA" required>
+                    <button type="button" class="regenerate-captcha" onclick="generateSignupCaptcha()">🔄</button>
+                </div>
+                <button type="submit" class="auth-btn">Sign Up</button>
+                <div class="error-message" id="signupErrorMessage">Invalid CAPTCHA or missing fields.</div>
+            </form>
+            <div class="toggle-form">Already have an account? <a onclick="showLogin()">Log in</a></div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div id="forgotPasswordModal" class="forgot-password-modal">
+        <div class="forgot-password-form">
+            <h2>Forgot Password</h2>
+            <p>Enter your email to reset your password.</p>
+            <input type="email" id="forgotEmail" placeholder="Enter your email" required>
+            <button onclick="resetPassword()">Reset Password</button>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

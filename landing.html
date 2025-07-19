@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Link to the dedicated stylesheet for this page -->
+    <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#announcements">Announcements</a></li>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </div>
+    <div class="sidebar-toggle"><i class="fas fa-bars"></i></div>
+
+    <!-- Header -->
+    <header>
+        <h1>Club Management System</h1>
+        <p>Efficiently manage your club activities and members</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#announcements">Announcements</a>
+        </div>
+        <a href="login.html" class="login-btn">Login</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Home Section -->
+        <section id="home" class="content-section fade-in">
+            <img src="https://media.istockphoto.com/id/1201620249/photo/excited-multiracial-students-pointing-up-at-copy-space.jpg?s=612x612&w=0&k=20&c=G6NdJepK_ASsAdttaL8Fn5f2P59UZiltWHW_WQNYzsI=" alt="Club Image">
+            <div class="text">
+                <h2>Welcome to Our Club</h2>
+                <p>The Club Management System is designed to help you manage your club activities, members, and events efficiently. Our goal is to make club management seamless, allowing you to focus on what truly matters—building a strong, engaged community.</p>
+            </div>
+        </section>
+
+        <!-- Announcement Section -->
+        <section id="announcements" class="announcement-section fade-in">
+            <h2>Announcements</h2>
+            <div class="announcement-card">
+                <h3>New Event: Annual Club Meet</h3>
+                <p>Join us for the annual club meet on 25th October 2023. Don't miss out on the fun and networking opportunities!</p>
+            </div>
+            <div class="announcement-card">
+                <h3>Volunteers Needed</h3>
+                <p>We are looking for volunteers for the upcoming charity event. Sign up now to make a difference!</p>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="fade-in">
+            <div class="dashboard">
+                <div class="dashboard-card"><i class="fas fa-users"></i><h3>Clubs</h3><p>Explore and manage all the clubs in the system.</p></div>
+                <div class="dashboard-card"><i class="fas fa-calendar-alt"></i><h3>Events</h3><p>Organize and track upcoming events.</p></div>
+                <div class="dashboard-card"><i class="fas fa-tasks"></i><h3>Tasks</h3><p>Assign and monitor tasks for your team.</p></div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="about-us fade-in">
+            <h2>About Us</h2>
+            <p>We are a dedicated team passionate about helping clubs and organizations streamline their operations. Our mission is to provide a user-friendly platform that simplifies club management and enhances collaboration.</p>
+            <div class="social-media">
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:gtcsoftwaredevelopmentclub@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contact" class="contact-us fade-in">
+            <h2>Contact Us</h2>
+            <p>Have questions or need support? Reach out to us! We're here to help.</p>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Link to the dedicated JavaScript for this page -->
+    <script src="landing.js"></script>
+</body>
+</html>

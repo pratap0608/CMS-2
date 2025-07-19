@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meetings</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Meetings</h1>
+        <p>Manage and view all meeting agendas efficiently</p>
+    </header>
+
+    <div id="navbar-placeholder"></div>
+
+    <div class="container">
+        <button class="toggle-add-btn" onclick="toggleAddForm('.add-form-section')">Add New Meeting</button>
+
+        <div class="add-form-section fade-in">
+            <h2>Add New Meeting</h2>
+            <form id="addMeetingForm">
+                <input type="text" id="meetingTopic" placeholder="Meeting Topic" required>
+                <textarea id="meetingDescription" placeholder="Meeting Description" rows="4" required></textarea>
+                <input type="datetime-local" id="meetingDateTime" required>
+                <button type="submit">Add Meeting</button>
+            </form>
+        </div>
+
+        <div class="search-filter-section fade-in">
+            <select id="filterAttribute">
+                <option value="">Search By</option>
+                <option value="topic">Meeting Topic</option>
+                <option value="date">Date</option>
+                <option value="completed">Completion Status</option>
+            </select>
+            <input type="text" id="searchValue" placeholder="Enter search value">
+            <button onclick="searchAndFilter()">Search/Filter</button>
+        </div>
+
+        <table class="data-table fade-in">
+            <thead>
+                <tr>
+                    <th>Meeting Topic</th>
+                    <th>Description</th>
+                    <th>Date & Time</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="meetingTableBody">
+                <!-- Data will be populated by meeting.js -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="meeting.js"></script>
+</body>
+</html>
